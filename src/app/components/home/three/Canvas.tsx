@@ -132,7 +132,7 @@ export const Canvas = ({
         "#canvasA",
         { width: document.body.clientWidth },
         {
-          width: 468,
+          width: document.body.clientWidth * 0.4,
           duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {

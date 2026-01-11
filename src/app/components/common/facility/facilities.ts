@@ -28,7 +28,7 @@ export const facilities = [
       },
     ],
     details: {
-      hours: "Check-in 15:00 / Check-out 11:00",
+      hours: "Check-in Whenever you are ready",
       location: "12–34F, ocean-facing tower",
       reservation:
         "Upgrades, extended stays and connecting rooms available upon request",

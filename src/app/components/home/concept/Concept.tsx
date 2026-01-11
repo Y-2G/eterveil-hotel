@@ -15,11 +15,11 @@ type Props = {
   setDebugConfig: Dispatch<SetStateAction<DebugConfig>>;
 };
 
-export const ConceptSection = ({ debugConfig, setDebugConfig }: Props) => {
+export const Concept = ({ debugConfig, setDebugConfig }: Props) => {
   return (
     <>
       <DebugGUI sceneConfig={debugConfig} setSceneConfig={setDebugConfig} />
-      <section id="concept" className={classNames(styles.concept)}>
+      <div id="concept" className={classNames(styles.concept)}>
         {/* フェーズ1：フルスクリーンCanvas - ピン留め対象 */}
         <div
           id="divA"
@@ -70,7 +70,7 @@ export const ConceptSection = ({ debugConfig, setDebugConfig }: Props) => {
             ))}
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 };

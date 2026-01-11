@@ -1,10 +1,9 @@
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { Heading } from "../../atoms/heading/Heading";
-import { CATCH_COPY_EN, HOTEL_NAME } from "../../common/constants";
+import { CATCH_COPY_EN } from "../../common/constants";
 import styles from "./styles.module.scss";
 import { Button } from "@/ui/button";
 
-export const HeroSection = () => {
+export const Hero = () => {
   return (
     <div className={styles.container}>
       {/* Hero Section */}

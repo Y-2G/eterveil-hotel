@@ -17,7 +17,7 @@ import styles from "./styles.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export type AccessSectionRef = {
+export type AccessRef = {
   handleMoreClick: () => void;
 };
 
@@ -26,7 +26,7 @@ type Props = {
   onToggleOrbitControls?: () => void;
 };
 
-export const AccessSection = forwardRef<AccessSectionRef, Props>(
+export const Access = forwardRef<AccessRef, Props>(
   ({ orbitControlsEnabled = false, onToggleOrbitControls }, ref) => {
     const { mapConfig, setMapConfig, hotelConfig, setHotelConfig } =
       useMapConfig();
@@ -421,9 +421,7 @@ export const AccessSection = forwardRef<AccessSectionRef, Props>(
                 <div className={styles.accessInfoSection}>
                   <h3 className={styles.accessInfoTitle}>Check-in Hours</h3>
                   <div className={styles.accessInfoText}>
-                    <p>
-                      Check-in/out&nbsp;&nbsp;&nbsp;&nbsp;Whenever you are ready
-                    </p>
+                    <p>Check-in/out:&nbspWhenever you are ready</p>
                   </div>
                 </div>
 
@@ -482,4 +480,4 @@ export const AccessSection = forwardRef<AccessSectionRef, Props>(
   }
 );
 
-AccessSection.displayName = "AccessSection";
+Access.displayName = "Access";

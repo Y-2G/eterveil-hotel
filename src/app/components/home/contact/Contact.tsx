@@ -7,11 +7,11 @@ import { Button } from "@/ui/button";
 
 type TabType = "reservation" | "inquiry";
 
-export function ContactSection() {
+export function Contact() {
   const [activeTab, setActiveTab] = useState<TabType>("reservation");
 
   return (
-    <section className={styles.contact}>
+    <div className={styles.contact}>
       {/* Header */}
       <div className={styles.contactHeader}>
         <Heading as="h2" isUnderLined={true} className="fade-target">
@@ -103,6 +103,6 @@ export function ContactSection() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

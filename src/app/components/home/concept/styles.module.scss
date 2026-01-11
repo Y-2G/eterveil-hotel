@@ -9,21 +9,12 @@
   gap: 20px;
 }
 
-.room {
-  position: relative;
-  width: 100%;
-}
-
-.description {
-  position: absolute;
-  right: 5%;
-  bottom: 1%;
-  z-index: 1;
-  display: inline-block;
-  width: fit-content;
-}
-
-.paragraph {
-  display: inline-block;
+.cathcCopyEn {
   font-style: italic;
+  font-size: 2rem;
+}
+
+.cathcCopyJa {
+  font-style: italic;
+  font-size: 0.82rem;
 }

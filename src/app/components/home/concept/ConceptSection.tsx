@@ -37,8 +37,8 @@ export const ConceptSection = ({ debugConfig, setDebugConfig }: Props) => {
           <Heading as="h2" isUnderLined={true} className="fade-target">
             CONCEPT
           </Heading>
-          <p className={classNames(`${styles.paragraph}`)}>{CATCH_COPY_EN}</p>
-          <p className={classNames(`${styles.paragraph}`)}>{CATCH_COPY_JA}</p>
+          <p className={classNames(`${styles.cathcCopyEn}`)}>{CATCH_COPY_EN}</p>
+          <p className={classNames(`${styles.cathcCopyJa}`)}>{CATCH_COPY_JA}</p>
         </div>
 
         {/* フェーズ2：詳細コンテンツ表示 */}

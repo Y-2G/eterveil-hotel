@@ -1,0 +1,429 @@
+// ========== ACCESS SECTION CONTAINER ==========
+.accessContainer {
+  min-height: 200vh;
+  color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.contentWrapper {
+  width: 100%;
+  max-width: 80rem;
+}
+
+// ========== FIXED HEADER (for scroll-triggered display) ==========
+.fixedHeader {
+  color: #fff;
+  position: fixed;
+  top: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+// ========== HEADER SECTION ==========
+.headerSection {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionSubtitle {
+  font-size: 0.875rem;
+  color: #a3a3a3;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+
+// ========== LAYOUT GRID ==========
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+// ========== MAP CARD ==========
+.mapCard {
+  background-color: transparent;
+  border-radius: 1rem;
+  // box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.mapContainer {
+  position: relative;
+  height: 600px;
+}
+
+.mapOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(10, 22, 40, 0.4),
+    rgba(26, 35, 50, 0.2),
+    rgba(15, 24, 33, 0.3)
+  );
+  pointer-events: none;
+}
+
+.desaturationOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.1);
+  pointer-events: none;
+}
+
+.locationPin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pinIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #dc2626;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.pinLabel {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+}
+
+.pinLabelText {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+// Map Labels
+.mapLabel {
+  position: absolute;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.05em;
+}
+
+.mapLabelTop {
+  top: 2rem;
+  right: 3rem;
+}
+
+.mapLabelBottom {
+  bottom: 5rem;
+  left: 3rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+// Map Caption
+.mapCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 0.75rem 1.5rem;
+}
+
+.mapCaptionText {
+  font-size: 0.75rem;
+  color: #d1d5db;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+// ========== ACCESS DETAIL CARD ==========
+.detailCard {
+  color: #fff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  background-color: #ffffff1a;
+  border: 1px solid #fff3;
+  overflow-y: auto;
+}
+
+.detailSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.detailHeader {
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  color: #1f2937;
+  border-bottom: 1px solid #d1d5db;
+  padding-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.infoGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoSubsection {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoTitle {
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: #4b5563;
+  margin-bottom: 0.75rem;
+  text-transform: capitalize;
+}
+
+.infoContent {
+  color: #4b5563;
+  line-height: 1.625;
+  font-size: 0.95rem;
+}
+
+.locationName {
+  color: #1f2937;
+}
+
+.locationDetails {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.locationNote {
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.checkInInfo {
+  color: #4b5563;
+  line-height: 1.625;
+}
+
+.instructionsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #4b5563;
+  line-height: 1.625;
+  font-size: 0.95rem;
+
+  li {
+    margin: 0;
+  }
+}
+
+.notesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.625;
+
+  li {
+    margin: 0;
+  }
+}
+
+// ========== MAP CAPTION OVERLAY ==========
+.mapCaptionWrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.mapCaptionOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+// ========== FIXED BUTTONS (right bottom) ==========
+.fixedButtons {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: auto;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.infoBarSvg {
+  flex: 1;
+  min-width: 0;
+
+  svg {
+    width: 100%;
+    height: auto;
+    max-height: 80px;
+  }
+}
+
+// ========== ACCESS INFO POPUP ==========
+.accessInfoPopup {
+  position: fixed;
+  bottom: 120px;
+  right: 2rem;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.accessInfoPopupContent {
+  position: relative;
+  width: 400px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  color: #fff;
+}
+
+.accessInfoCloseButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.accessInfoPopupHeader {
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.accessInfoPopupBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.accessInfoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accessInfoTitle {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.accessInfoText {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+
+  p {
+    margin: 0 0 0.25rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+
+    li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.35rem;
+
+      &::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+}
+
+.accessInfoLocationName {
+  color: #fff;
+  font-weight: 500;
+}
+
+.accessInfoNote {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.25rem;
+}
+
+.accessInfoNotes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+
+  li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.35rem;
+
+    &::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}

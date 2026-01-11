@@ -1,0 +1,174 @@
+// Main container
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+// Header section
+.headerArea {
+  margin-bottom: 3rem;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  background-color: rgba(30, 27, 75, 0.4);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  color: #bfdbfe;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.floorLabel {
+  font-size: 0.875rem;
+  color: #78716c;
+}
+
+.title {
+  margin-bottom: 1.5rem;
+  color: #f5f5f0;
+  font-family: serif;
+  font-style: italic;
+}
+
+.description {
+  color: #a8a39d;
+  max-width: 42rem;
+  line-height: 1.625;
+}
+
+// Body section - Two columns
+.bodyWrapper {
+  display: flex;
+  gap: 3rem;
+  flex: 1;
+}
+
+// Left column - Images
+.imageSection {
+  flex: 1;
+}
+
+.mainImageWrapper {
+  margin-bottom: 0.75rem;
+}
+
+.mainImage {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.imageCaption {
+  font-size: 0.75rem;
+  color: #78716c;
+  margin-bottom: 1rem;
+  padding: 0 0.25rem;
+}
+
+.galleryWrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.galleryThumbnail {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Right column - Details
+.detailsSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.detailItem {
+  dt {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #78716c;
+    margin-bottom: 0.5rem;
+  }
+
+  dd {
+    font-size: 0.875rem;
+    color: #d4d4ce;
+    line-height: 1.625;
+  }
+}
+
+.highlightsSection {
+  h3 {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #a8a39d;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    li {
+      font-size: 0.875rem;
+      color: #d4d4ce;
+      display: flex;
+      gap: 0.75rem;
+
+      .bullet {
+        color: rgba(96, 165, 250, 0.6);
+        margin-top: 0.25rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+.noteSection {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  p {
+    font-size: 0.75rem;
+    color: #78716c;
+    line-height: 1.625;
+  }
+}

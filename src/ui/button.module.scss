@@ -1,0 +1,121 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.solid {
+  background-color: #111827;
+  border-color: #111827;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #374151;
+    border-color: #374151;
+  }
+}
+
+.outline {
+  background-color: transparent;
+  border-color: #1a2634;
+  color: #1a2634;
+
+  &:hover {
+    background-color: #1a2634;
+    color: #ffffff;
+  }
+}
+
+.glass {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
+
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+.tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: #9ca3af;
+
+  &:hover {
+    color: #4b5563;
+  }
+
+  &[data-state="active"] {
+    color: #111827;
+    border-bottom-color: #111827;
+  }
+}
+
+.sm {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+.md {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.lg {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+}
+
+.xl {
+  padding: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  letter-spacing: 0;
+}
+
+.tabSize {
+  padding: 0 1rem 0.75rem;
+  font-size: 0.875rem;
+}

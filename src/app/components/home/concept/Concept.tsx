@@ -37,8 +37,35 @@ export const Concept = ({ debugConfig, setDebugConfig }: Props) => {
           <Heading as="h2" isUnderLined={true} className="fade-target">
             CONCEPT
           </Heading>
-          <p className={classNames(`${styles.cathcCopyEn}`)}>{CATCH_COPY_EN}</p>
-          <p className={classNames(`${styles.cathcCopyJa}`)}>{CATCH_COPY_JA}</p>
+          <p className={classNames(styles.cathcCopyEn, "fade-target")}>
+            {CATCH_COPY_EN}
+          </p>
+          <p className={classNames(styles.cathcCopyJa, "fade-target")}>
+            {CATCH_COPY_JA}
+          </p>
+          <div className={classNames(styles.description)}>
+            <p className="fade-target">
+              ETERVEIL HOTEL is an ocean-mist retreat where silence is treated
+              as a luxury.
+            </p>
+            <p className="fade-target">
+              Every suite opens toward the horizon. Morning light glides across
+              the floor; at night, the tide breathes
+            </p>
+            <p className="fade-target">
+              On nights when the sea lies calm, a tower appears through a break
+              in the fog—ETERVEIL HOTEL. Here, plans and deadlines strangely
+              lose their meaning, and only what you feel now remains certain.
+            </p>
+            <p className="fade-target">
+              If you find yourself wanting to extend your stay, there&apos;s no
+              need to worry. If you wish it, your room will always be made
+              ready.
+            </p>
+            <p className="fade-target">
+              The day you leave is decided not by you, but by the hotel.
+            </p>
+          </div>
         </div>
 
         {/* フェーズ2：詳細コンテンツ表示 */}

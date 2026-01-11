@@ -81,6 +81,13 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
     );
     const initialLookAtApplied = useRef(false);
 
+    // マウント時にスクロール位置をチェックし、heroセクション外ならtargetXを0にする
+    useEffect(() => {
+      if (window.scrollY >= window.innerHeight) {
+        lastLookAtTarget.current.x = 0;
+      }
+    }, []);
+
     // WorldModelのロード完了を監視
     useEffect(() => {
       const checkTerrain = () => {
@@ -192,6 +199,7 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
           const targetZ = initialLookAtApplied.current
             ? lastLookAtTarget.current.z
             : debugConfig.camera.targetZ;
+
           cameraRef.current.lookAt(targetX, targetY, targetZ);
           lastLookAtTarget.current.set(targetX, targetY, targetZ);
           initialLookAtApplied.current = true;

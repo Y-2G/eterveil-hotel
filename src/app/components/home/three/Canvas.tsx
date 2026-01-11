@@ -46,6 +46,9 @@ const cameraAnimationSettings = {
     rotX: -Math.PI / 2,
     rotY: 0,
     rotZ: 0,
+    targetX: 0,
+    targetY: 0,
+    targetZ: 0,
   },
 };
 

@@ -1,6 +1,5 @@
 .concept {
   position: relative;
-  font-family: var(--font-cormorant-garamond);
 }
 
 .b-content {
@@ -10,11 +9,13 @@
 }
 
 .cathcCopyEn {
+  font-family: var(--font-cormorant-garamond);
   font-style: italic;
   font-size: 2rem;
 }
 
 .cathcCopyJa {
+  font-family: var(--font-cormorant-garamond);
   font-style: italic;
   font-size: 0.82rem;
 }

@@ -52,6 +52,15 @@ const cameraAnimationSettings = {
   },
 };
 
+// 画面幅に応じて相対的なtargetXを計算
+// 基準: 画面幅1470pxのときtargetX = 45
+const getRelativeTargetX = () => {
+  if (typeof window === "undefined") return 45;
+  const baseWidth = 1470;
+  const baseTargetX = 45;
+  return (window.innerWidth / baseWidth) * baseTargetX;
+};
+
 export const Canvas = ({
   debugConfig,
   zIndex = 1,
@@ -61,6 +70,9 @@ export const Canvas = ({
   const [animationProgress] = useState(0);
   const [isMapPinLayerActive, setIsMapPinLayerActive] = useState(false);
   const [dissolveProgress, setDissolveProgress] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1470
+  );
 
   // 初期状態ではundefined（debugConfigの値を使用）
   // スクロールアニメーション時のみcameraStateを設定
@@ -84,6 +96,15 @@ export const Canvas = ({
     };
   }, [debugConfig.dissolve.startDistance, debugConfig.dissolve.endDistance]);
 
+  // ウィンドウリサイズ時にwindowWidthを更新
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // カメラアニメーション: ScrollTrigger で駆動
   useEffect(() => {
     const canvasElement = document.getElementById("canvasA");
@@ -91,8 +112,9 @@ export const Canvas = ({
 
     const ctx = gsap.context(() => {
       // conceptセクションに入ったらtargetXを0に、カメラZを40にアニメーション（スクロール連動）
+      // targetXは画面幅に応じて相対計算（基準: 1470px = 45）
       const conceptCameraProxy = {
-        targetX: debugConfig.camera.targetX,
+        targetX: getRelativeTargetX(),
         targetY: debugConfig.camera.targetY,
         targetZ: debugConfig.camera.targetZ,
         posZ: debugConfig.camera.positionZ,
@@ -450,7 +472,9 @@ export const Canvas = ({
       mapPinHideCallRef.current?.kill();
       ctx.revert();
     };
-  }, []);
+    // windowWidthを依存配列に追加し、リサイズ時にScrollTriggerを再セットアップ
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [windowWidth]);
 
   return (
     <div

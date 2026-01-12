@@ -6,6 +6,7 @@ import {
   useState,
   forwardRef,
   useImperativeHandle,
+  useCallback,
 } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -43,7 +44,7 @@ export const Access = forwardRef<AccessRef, Props>(
     }, []);
 
     // MOREボタンクリック時のハンドラ
-    const handleMoreClick = () => {
+    const handleMoreClick = useCallback(() => {
       if (isAccessInfoOpen) {
         // 閉じるアニメーション
         gsap.to(accessInfoPopupRef.current, {
@@ -57,7 +58,7 @@ export const Access = forwardRef<AccessRef, Props>(
         // 開くアニメーション - stateだけ変更し、アニメーションはuseEffectで実行
         setIsAccessInfoOpen(true);
       }
-    };
+    }, [isAccessInfoOpen]);
 
     // ポップアップが開いた後にアニメーションを実行
     useEffect(() => {

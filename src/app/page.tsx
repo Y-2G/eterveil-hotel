@@ -64,7 +64,7 @@ export default function Home() {
       />
       <Header />
       <main style={{ minHeight: "500vh" }}>
-        <section id="hero">
+        <section id="home ">
           <Hero />
         </section>
         <section id="concept">
@@ -79,7 +79,7 @@ export default function Home() {
         </section>
         <div
           id="transition-spacer"
-          style={{ height: "300svh" }}
+          style={{ height: "300svh", marginBottom: "100svh" }}
           aria-hidden="true"
         />
         <section id="contact">

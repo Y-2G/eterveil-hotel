@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 2rem;
+  padding: 5rem 3rem;
   position: relative;
 }
 
@@ -26,6 +26,11 @@
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
+
+  @media (max-width: 767px) {
+    padding: 0 1rem;
+    width: 100%;
+  }
 }
 
 // ========== HEADER SECTION ==========
@@ -39,6 +44,10 @@
   color: #a3a3a3;
   letter-spacing: 0.05em;
   line-height: 1.6;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 // ========== LAYOUT GRID ==========

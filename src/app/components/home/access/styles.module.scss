@@ -291,6 +291,11 @@
   pointer-events: auto;
   opacity: 0;
   visibility: hidden;
+
+  @media (max-width: 767px) {
+    bottom: 6rem;
+    right: 1rem;
+  }
 }
 
 .infoBarSvg {

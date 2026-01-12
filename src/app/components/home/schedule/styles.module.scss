@@ -25,6 +25,8 @@
 
 // ========== MODAL CONTENT (SP fullscreen) ==========
 .modalContent {
+  padding: 2rem;
+
   @media (max-width: 767px) {
     position: fixed !important;
     inset: 0 !important;

@@ -43,6 +43,14 @@ type SceneProps = {
   mapPinPortalRef?: React.RefObject<HTMLElement>;
 };
 
+// 画面幅に応じて相対的なtargetXを計算
+// 基準: 画面幅1470pxのときtargetX = 45
+const getRelativeTargetX = (baseTargetX: number) => {
+  if (typeof window === "undefined") return baseTargetX;
+  const baseWidth = 1470;
+  return (window.innerWidth / baseWidth) * baseTargetX;
+};
+
 export const Scene = forwardRef<SceneRef, SceneProps>(
   (
     {
@@ -74,7 +82,7 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
 
     const lastLookAtTarget = useRef(
       new THREE.Vector3(
-        debugConfig.camera.targetX,
+        getRelativeTargetX(debugConfig.camera.targetX),
         debugConfig.camera.targetY,
         debugConfig.camera.targetZ
       )
@@ -173,7 +181,7 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
             cameraState.targetX ??
             (initialLookAtApplied.current
               ? lastLookAtTarget.current.x
-              : debugConfig.camera.targetX);
+              : getRelativeTargetX(debugConfig.camera.targetX));
           const targetY =
             cameraState.targetY ??
             (initialLookAtApplied.current
@@ -189,10 +197,10 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
           lastLookAtTarget.current.set(targetX, targetY, targetZ);
           initialLookAtApplied.current = true;
         } else {
-          // 初回だけdebugConfigのtarget、それ以降は前回のlookAtを維持
+          // 初回だけdebugConfigのtarget（相対値）、それ以降は前回のlookAtを維持
           const targetX = initialLookAtApplied.current
             ? lastLookAtTarget.current.x
-            : debugConfig.camera.targetX;
+            : getRelativeTargetX(debugConfig.camera.targetX);
           const targetY = initialLookAtApplied.current
             ? lastLookAtTarget.current.y
             : debugConfig.camera.targetY;
@@ -222,7 +230,7 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
         if (!orbitControlsEnabled) {
           const targetX = initialLookAtApplied.current
             ? lastLookAtTarget.current.x
-            : debugConfig.camera.targetX;
+            : getRelativeTargetX(debugConfig.camera.targetX);
           const targetY = initialLookAtApplied.current
             ? lastLookAtTarget.current.y
             : debugConfig.camera.targetY;

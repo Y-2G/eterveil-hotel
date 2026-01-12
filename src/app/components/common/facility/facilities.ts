@@ -7,23 +7,23 @@ export const facilities = [
     description:
       "Expansive oceanfront suites where the living space opens directly onto the endless blue. Morning light spills across warm wooden floors and soft textiles, blurring the boundary between your room and the sea beyond.",
     // 👇 ここは手元の客室画像に差し替えてOK
-    mainImage: "/images/concept/room-dummy1.png",
+    mainImage: "/images/facilities/room-dummy1.png",
     mainImageAlt: "Oceanfront suite living room with panoramic sea view",
     galleryImages: [
       {
-        url: "/images/facilities/ocean-suite-living.jpg",
+        url: "/images/facilities/room-dummy2.png",
         alt: "Spacious living area with lounge chairs",
       },
       {
-        url: "/images/facilities/ocean-suite-dining.jpg",
+        url: "/images/facilities/room-dummy3.png",
         alt: "Dining table beside the window overlooking the ocean",
       },
       {
-        url: "/images/facilities/ocean-suite-bedroom.jpg",
+        url: "/images/facilities/room-dummy4.png",
         alt: "Bedroom with soft lighting and ocean view",
       },
       {
-        url: "/images/facilities/ocean-suite-terrace.jpg",
+        url: "/images/facilities/room-dummy5.png",
         alt: "Private terrace with seating facing the shoreline",
       },
     ],
@@ -47,24 +47,23 @@ export const facilities = [
     title: "Drift at the same height as the sea",
     description:
       "Suspended between sky and ocean, our infinity pool merges seamlessly with the horizon. The spa offers restorative treatments inspired by the rhythm of tides, where time feels both suspended and eternal.",
-    mainImage:
-      "https://images.unsplash.com/photo-1761138785118-cbdc66c7f0ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBpbmZpbml0eSUyMHBvb2wlMjBuaWdodHxlbnwxfHx8fDE3NjM4NjYxMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    mainImage: "/images/facilities/bath-dummy1.png",
     mainImageAlt: "Infinity pool at night",
     galleryImages: [
       {
-        url: "https://images.unsplash.com/photo-1719858511928-94db73c8de67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGElMjB0cmVhdG1lbnQlMjBsdXh1cnl8ZW58MXx8fHwxNzYzNzkwNDU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+        url: "/images/facilities/bath-dummy2.png",
         alt: "Spa treatment luxury",
       },
       {
-        url: "https://images.unsplash.com/photo-1701568129402-0d4541e3dab7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob3RlbCUyMHBvb2wlMjBzdW5zZXR8ZW58MXx8fHwxNzYzODY2MTAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        url: "/images/facilities/bath-dummy3.png",
         alt: "Hotel pool sunset",
       },
       {
-        url: "https://images.unsplash.com/photo-1731336479432-3eb5fdb3ab1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBzcGElMjBpbnRlcmlvcnxlbnwxfHx8fDE3NjM4MzU2MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        url: "/images/facilities/bath-dummy4.png",
         alt: "Luxury spa interior",
       },
       {
-        url: "https://images.unsplash.com/flagged/photo-1569880286597-0019858e19d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmZpbml0eSUyMHBvb2wlMjBvY2VhbiUyMHZpZXd8ZW58MXx8fHwxNzYzODY2MTAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        url: "/images/facilities/bath-dummy5.png",
         alt: "Infinity pool ocean view",
       },
     ],
@@ -87,23 +86,23 @@ export const facilities = [
     title: "Culinary Excellence Above the Clouds",
     description:
       "Perched at the pinnacle of the hotel, our Michelin-starred restaurant offers an unparalleled gastronomic journey. Each dish is a masterpiece, crafted by our award-winning chefs using the finest seasonal ingredients and innovative techniques.",
-    mainImage: "/images/concept/meal-dummy1.png",
+    mainImage: "/images/facilities/meal-dummy1.png",
     mainImageAlt: "Fine dining restaurant with city lights",
     galleryImages: [
       {
-        url: "https://images.unsplash.com/photo-1582127337900-d8a44e20b786?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwZGlzaCUyMHByZXNlbnRhdGlvbnxlbnwxfHx8fDE3NjM4NjYxMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        url: "/images/facilities/meal-dummy2.png",
         alt: "Elegant dish presentation",
       },
       {
-        url: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVmJTIwY29va2luZ3xlbnwxfHx8fDE3NjM4NjYxMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        url: "/images/facilities/meal-dummy3.png",
         alt: "Chef preparing gourmet food",
       },
       {
-        url: "https://images.unsplash.com/photo-1519457031506-fd4dc2c16c89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aW5lJTIwdGFzdGluZ3xlbnwxfHx8fDE3NjM4NjYxMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        url: "/images/facilities/meal-dummy4.png",
         alt: "Wine tasting collection",
       },
       {
-        url: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXN0YXVyYW50JTIwaW50ZXJpb3J8ZW58MXx8fHwxNzYzODY2MTAw&ixlib=rb-4.1.0&q=80&w=1080",
+        url: "/images/facilities/meal-dummy5.png",
         alt: "Restaurant interior design",
       },
     ],

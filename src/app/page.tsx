@@ -64,7 +64,7 @@ export default function Home() {
       />
       <Header />
       <main style={{ minHeight: "500vh" }}>
-        <section id="home ">
+        <section id="home">
           <Hero />
         </section>
         <section id="concept">

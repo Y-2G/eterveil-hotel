@@ -45,7 +45,7 @@ export const Footer = () => {
         <div className={`${styles.footerLinksBottom}`}>
           <Link href="/">Privacy Policy</Link>
           <span className={`${styles.separator}`}>|</span>
-          <Link href="/">Terms Of Service</Link>
+          <Link href="/">Terms of Service</Link>
           <span className={`${styles.separator}`}>|</span>
           <Link href="/">Contact</Link>
         </div>

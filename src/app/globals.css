@@ -8,6 +8,16 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   --tracking-wide: 0.025em;
+
+  /* z-index scale */
+  --z-base: 1;
+  --z-canvas: 10;
+  --z-section: 100;
+  --z-floating: 202;
+  --z-header: 300;
+  --z-menu: 400;
+  --z-dialog: 900;
+  --z-modal: 1000;
 }
 
 @media (prefers-color-scheme: dark) {

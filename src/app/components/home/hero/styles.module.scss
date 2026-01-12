@@ -53,7 +53,7 @@
 // Content Layout
 .contentWrapper {
   position: relative;
-  z-index: 10;
+  z-index: var(--z-section);
   max-width: 1440px;
   margin: 0 auto;
   margin-top: 104px;

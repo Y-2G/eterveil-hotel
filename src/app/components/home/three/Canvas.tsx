@@ -167,17 +167,16 @@ export const Canvas = ({
       const isMobile = windowWidth < 768;
 
       if (isMobile) {
-        // SP用: 親コンテナのサイズのみをアニメーション（左下基点で縮小）
-        // 位置はbottom: 0, left: 0で固定、サイズだけ変更
+        // SP用: scaleで縮小（左下基点）
         gsap.fromTo(
           "#canvas-container",
           {
-            width: "100vw",
-            height: "100vh",
+            scale: 1,
+            transformOrigin: "left bottom",
           },
           {
-            width: "35vw",
-            height: "35vh",
+            scale: 0.35,
+            transformOrigin: "left bottom",
             duration: 0.8,
             ease: "power3.out",
             scrollTrigger: {

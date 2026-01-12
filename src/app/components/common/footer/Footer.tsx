@@ -43,11 +43,11 @@ export const Footer = () => {
 
       <div className={`${styles.footerBottom}`}>
         <div className={`${styles.footerLinksBottom}`}>
-          <Link href="/">プライバシーポリシー</Link>
+          <Link href="/">Privacy Policy</Link>
           <span className={`${styles.separator}`}>|</span>
-          <Link href="/">利用規約</Link>
+          <Link href="/">Terms Of Service</Link>
           <span className={`${styles.separator}`}>|</span>
-          <Link href="/">お問い合わせ</Link>
+          <Link href="/">Contact</Link>
         </div>
         <p className={`${styles.copyright}`}>
           &copy; {currentYear} HORROR HOTEL. All rights reserved.

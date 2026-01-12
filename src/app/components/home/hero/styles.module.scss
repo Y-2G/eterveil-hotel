@@ -234,15 +234,16 @@
   }
 
   .contentWrapper {
+    display: inline-block;
+    position: absolute;
+    left: 40%;
+    top: 45%;
+    padding: 0;
+    margin: 0;
     height: auto;
-    padding: 2rem 1rem;
-    flex-direction: column;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
   }
 
   .leftColumn {
-    width: 100%;
     display: none;
   }
 
@@ -251,18 +252,25 @@
     padding-left: 0;
   }
 
+  .label {
+    display: none;
+  }
+
   .mainTitle {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
   }
 
   .tagline {
-    font-size: 1.125rem;
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 0;
   }
 
   .supportingCopy {
-    font-size: 0.875rem;
-    margin-bottom: 2rem;
+    display: none;
+  }
+
+  .ctaButtons {
+    display: none;
   }
 }

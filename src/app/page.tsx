@@ -79,7 +79,7 @@ export default function Home() {
         </section>
         <div
           id="transition-spacer"
-          style={{ height: "100svh" }}
+          style={{ height: "300svh" }}
           aria-hidden="true"
         />
         <section id="contact">

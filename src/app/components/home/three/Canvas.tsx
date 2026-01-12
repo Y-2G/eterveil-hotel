@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Scene, SceneRef } from "./Scene";
 import { DebugConfig } from "./types";
+import styles from "./styles.module.scss";
 
 // ScrollTrigger プラグインを登録
 gsap.registerPlugin(ScrollTrigger);
@@ -530,20 +531,14 @@ export const Canvas = ({
   return (
     <div
       id="canvas-container"
+      className={styles.canvasContainer}
       style={{
-        position: "fixed",
-        opacity: 1,
-        bottom: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
         zIndex: orbitControlsEnabled || isMapPinLayerActive ? 4 : zIndex,
-        pointerEvents: "auto",
       }}
     >
       <ThreeCanvas
         id="canvasA"
-        style={{ width: "100%", height: "100%" }}
+        className={styles.canvas}
         resize={{ scroll: false, debounce: { scroll: 0, resize: 0 } }}
         gl={{ alpha: false }}
         onCreated={({ gl }) => {
@@ -561,24 +556,9 @@ export const Canvas = ({
         />
       </ThreeCanvas>
       {/* Map Overlay - Navy gradient */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(to bottom right, rgba(10, 22, 40, 0.4), rgba(26, 35, 50, 0.2), rgba(15, 24, 33, 0.3))",
-          pointerEvents: "none",
-        }}
-      />
+      <div className={styles.mapOverlay} />
       {/* Desaturation Overlay */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundColor: "rgba(15, 23, 42, 0.1)",
-          pointerEvents: "none",
-        }}
-      />
+      <div className={styles.desaturationOverlay} />
     </div>
   );
 };

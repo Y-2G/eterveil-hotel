@@ -2,6 +2,30 @@
   position: relative;
 }
 
+.divA {
+  position: relative;
+  min-height: 200vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  z-index: var(--z-section);
+}
+
+.divB {
+  position: relative;
+  display: flex;
+  opacity: 1;
+  padding-top: 100px;
+  padding-bottom: 200svh;
+  z-index: var(--z-base);
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+}
+
 .bLeft {
   flex: 0 0 40vw;
 
@@ -10,20 +34,17 @@
   }
 }
 
-.b-content {
+.bContent {
+  flex: 1;
+  padding: 10vh 5vw;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 20px;
 
   @media (max-width: 767px) {
     width: 100%;
     padding: 5vh 4vw;
-  }
-}
-
-.detailPhase {
-  @media (max-width: 767px) {
-    flex-direction: column;
   }
 }
 

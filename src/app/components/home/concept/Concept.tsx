@@ -19,21 +19,9 @@ export const Concept = ({ debugConfig, setDebugConfig }: Props) => {
   return (
     <>
       <DebugGUI sceneConfig={debugConfig} setSceneConfig={setDebugConfig} />
-      <div id="concept" className={classNames(styles.concept)}>
+      <div id="concept" className={styles.concept}>
         {/* フェーズ1：フルスクリーンCanvas - ピン留め対象 */}
-        <div
-          id="divA"
-          style={{
-            position: "relative",
-            minHeight: "200vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
-            color: "#fff",
-            zIndex: 2,
-          }}
-        >
+        <div id="divA" className={styles.divA}>
           <Heading as="h2" isUnderLined={true} className="fade-target">
             CONCEPT
           </Heading>
@@ -43,7 +31,7 @@ export const Concept = ({ debugConfig, setDebugConfig }: Props) => {
           <p className={classNames(styles.cathcCopyJa, "fade-target")}>
             {CATCH_COPY_JA}
           </p>
-          <div className={classNames(styles.description)}>
+          <div className={styles.description}>
             <p className="fade-target">
               ETERVEIL HOTEL is an ocean-mist retreat where silence is treated
               as a luxury.
@@ -69,29 +57,9 @@ export const Concept = ({ debugConfig, setDebugConfig }: Props) => {
         </div>
 
         {/* フェーズ2：詳細コンテンツ表示 */}
-        <div
-          id="divB"
-          className={classNames("divB", styles.detailPhase)}
-          style={{
-            position: "relative",
-            display: "flex",
-            zIndex: 1,
-            opacity: 1,
-            paddingTop: "100px",
-            paddingBottom: "200svh",
-          }}
-        >
+        <div id="divB" className={classNames("divB", styles.divB)}>
           <div className={classNames("b-left", styles.bLeft)} />
-          <div
-            className={classNames(`${styles["b-content"]}`, "b-content")}
-            style={{
-              flex: "1",
-              padding: "10vh 5vw",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-            }}
-          >
+          <div className={classNames(styles.bContent, "b-content")}>
             {facilities.map((v, i) => (
               <FacilityDetails key={i} facility={v} />
             ))}

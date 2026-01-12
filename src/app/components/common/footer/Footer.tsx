@@ -50,7 +50,7 @@ export const Footer = () => {
           <Link href="/">Contact</Link>
         </div>
         <p className={`${styles.copyright}`}>
-          &copy; {currentYear} HORROR HOTEL. All rights reserved.
+          &copy; {currentYear} ETERVEIL HOTEL. All rights reserved.
         </p>
       </div>
     </footer>

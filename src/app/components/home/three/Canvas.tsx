@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Canvas as ThreeCanvas } from "@react-three/fiber";
+import * as THREE from "three";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Scene, SceneRef } from "./Scene";
@@ -74,6 +75,7 @@ export const Canvas = ({
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1470
   );
+  const [showOnlyHotel, setShowOnlyHotel] = useState(false);
 
   // 初期状態ではundefined（debugConfigの値を使用）
   // スクロールアニメーション時のみcameraStateを設定
@@ -81,6 +83,7 @@ export const Canvas = ({
     undefined
   );
   const sceneRef = useRef<SceneRef>(null);
+  const glRef = useRef<THREE.WebGLRenderer | null>(null);
   const mapPinOpacityRef = useRef(0);
   const mapPinTweenRef = useRef<gsap.core.Tween | null>(null);
   const mapPinHideCallRef = useRef<gsap.core.Tween | null>(null);
@@ -96,6 +99,13 @@ export const Canvas = ({
       endDistance: debugConfig.dissolve.endDistance,
     };
   }, [debugConfig.dissolve.startDistance, debugConfig.dissolve.endDistance]);
+
+  // showOnlyHotelが変わったときにCanvas背景の透明度を更新
+  useEffect(() => {
+    if (glRef.current) {
+      glRef.current.setClearColor("#0a1628", showOnlyHotel ? 0 : 1);
+    }
+  }, [showOnlyHotel]);
 
   // ウィンドウリサイズ時にwindowWidthを更新
   useEffect(() => {
@@ -177,31 +187,14 @@ export const Canvas = ({
               end: "bottom top",
               toggleActions: "play reverse play reverse",
               markers: false,
+              onEnter: () => setShowOnlyHotel(true),
+              onLeave: () => setShowOnlyHotel(false),
+              onEnterBack: () => setShowOnlyHotel(true),
+              onLeaveBack: () => setShowOnlyHotel(false),
             },
           }
         );
 
-        // カメラzを遠ざける（ホテル全体が映るように）
-        const mobileCameraProxy = { posZ: 40 };
-        gsap.to(mobileCameraProxy, {
-          posZ: 100,
-          duration: 0.8,
-          ease: "power3.out",
-          scrollTrigger: {
-            id: "camera-zoom-mobile",
-            trigger: "#divB .b-content",
-            start: "top bottom",
-            end: "bottom top",
-            toggleActions: "play reverse play reverse",
-            markers: false,
-          },
-          onUpdate: () => {
-            setCameraState((prev) => ({
-              ...prev,
-              posZ: mobileCameraProxy.posZ,
-            }));
-          },
-        });
       } else {
         // デスクトップ用: 幅のみ縮小（既存アニメーション）
         gsap.fromTo(
@@ -540,15 +533,17 @@ export const Canvas = ({
         id="canvasA"
         className={styles.canvas}
         resize={{ scroll: false, debounce: { scroll: 0, resize: 0 } }}
-        gl={{ alpha: false }}
+        gl={{ alpha: true }}
         onCreated={({ gl }) => {
-          gl.setClearColor("#0a1628", 1);
+          glRef.current = gl;
+          gl.setClearColor("#0a1628", showOnlyHotel ? 0 : 1);
         }}
       >
         <Scene
           ref={sceneRef}
           debugConfig={debugConfig}
           animationProgress={animationProgress}
+          showOnlyHotel={showOnlyHotel}
           cameraState={cameraState}
           dissolveProgress={dissolveProgress}
           orbitControlsEnabled={orbitControlsEnabled}
@@ -556,7 +551,10 @@ export const Canvas = ({
         />
       </ThreeCanvas>
       {/* Map Overlay - Navy gradient */}
-      <div className={styles.mapOverlay} />
+      <div
+        className={styles.mapOverlay}
+        style={{ display: showOnlyHotel ? "none" : undefined }}
+      />
       {/* Desaturation Overlay */}
       <div className={styles.desaturationOverlay} />
     </div>

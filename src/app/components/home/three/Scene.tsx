@@ -41,6 +41,7 @@ type SceneProps = {
   orbitControlsEnabled?: boolean;
   onMapPinClick?: () => void;
   mapPinPortalRef?: React.RefObject<HTMLElement>;
+  showOnlyHotel?: boolean;
 };
 
 // 画面幅に応じて相対的なtargetXを計算
@@ -61,6 +62,7 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
       orbitControlsEnabled,
       onMapPinClick,
       mapPinPortalRef,
+      showOnlyHotel = false,
     },
     ref
   ) => {
@@ -310,7 +312,7 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
           target={[0, 0, 0]}
         />
         {/* Fog */}
-        {debugConfig.fog.enabled && (
+        {!showOnlyHotel && debugConfig.fog.enabled && (
           <fog
             attach="fog"
             args={[
@@ -325,50 +327,56 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
         <directionalLight position={[10, 10, 5]} intensity={1} />
 
         {/* 物理ベースの空（Sky シェーダー） */}
-        <Sky
-          config={debugConfig.sky}
-          dissolveProgress={skyDissolveProgress}
-          dissolvePointSize={debugConfig.dissolve.skyPointSize}
-          dissolveScatterStart={debugConfig.dissolve.scatterStart}
-        />
+        {!showOnlyHotel && (
+          <Sky
+            config={debugConfig.sky}
+            dissolveProgress={skyDissolveProgress}
+            dissolvePointSize={debugConfig.dissolve.skyPointSize}
+            dissolveScatterStart={debugConfig.dissolve.scatterStart}
+          />
+        )}
 
         {/* リアル寄りの海を追加 */}
-        <Ocean
-          waterSize={2000}
-          waterSegments={64}
-          sunElevation={50}
-          sunAzimuth={180}
-          rtResolution={512}
-          waterNormalsPath="/textures/waternormals.jpg"
-          toneMappingExposure={1.5}
-          position={[
-            debugConfig.ocean.positionX,
-            debugConfig.ocean.positionY,
-            debugConfig.ocean.positionZ,
-          ]}
-          fogEnabled={debugConfig.fog.enabled}
-          dissolveProgress={oceanDissolveProgress}
-          dissolvePointSize={debugConfig.dissolve.oceanPointSize}
-          dissolveScatterStart={debugConfig.dissolve.scatterStart}
-        />
+        {!showOnlyHotel && (
+          <Ocean
+            waterSize={2000}
+            waterSegments={64}
+            sunElevation={50}
+            sunAzimuth={180}
+            rtResolution={512}
+            waterNormalsPath="/textures/waternormals.jpg"
+            toneMappingExposure={1.5}
+            position={[
+              debugConfig.ocean.positionX,
+              debugConfig.ocean.positionY,
+              debugConfig.ocean.positionZ,
+            ]}
+            fogEnabled={debugConfig.fog.enabled}
+            dissolveProgress={oceanDissolveProgress}
+            dissolvePointSize={debugConfig.dissolve.oceanPointSize}
+            dissolveScatterStart={debugConfig.dissolve.scatterStart}
+          />
+        )}
 
-        <WorldModel
-          ref={worldModelRef}
-          positionX={debugConfig.world.positionX}
-          positionY={debugConfig.world.positionY}
-          positionZ={debugConfig.world.positionZ}
-          scale={debugConfig.world.scaleValue}
-          rotationX={debugConfig.world.rotationX}
-          rotationY={debugConfig.world.rotationY}
-          rotationZ={debugConfig.world.rotationZ}
-          dissolveProgress={modelDissolveProgress}
-          dissolveMaxPoints={debugConfig.dissolve.worldMaxPoints}
-          dissolvePointSize={debugConfig.dissolve.worldPointSize}
-          dissolveScatterStart={debugConfig.dissolve.scatterStart}
-        />
+        {!showOnlyHotel && (
+          <WorldModel
+            ref={worldModelRef}
+            positionX={debugConfig.world.positionX}
+            positionY={debugConfig.world.positionY}
+            positionZ={debugConfig.world.positionZ}
+            scale={debugConfig.world.scaleValue}
+            rotationX={debugConfig.world.rotationX}
+            rotationY={debugConfig.world.rotationY}
+            rotationZ={debugConfig.world.rotationZ}
+            dissolveProgress={modelDissolveProgress}
+            dissolveMaxPoints={debugConfig.dissolve.worldMaxPoints}
+            dissolvePointSize={debugConfig.dissolve.worldPointSize}
+            dissolveScatterStart={debugConfig.dissolve.scatterStart}
+          />
+        )}
 
         {/* 軽量草システム - 単一InstancedMeshで描画 */}
-        {debugConfig.grass.enabled && terrainScene && (
+        {!showOnlyHotel && debugConfig.grass.enabled && terrainScene && (
           <SimpleGrass
             key={`grass-${debugConfig.grass.count}-${debugConfig.grass.spread}-${debugConfig.grass.height}-${debugConfig.grass.width}-${debugConfig.grass.positionX}-${debugConfig.grass.positionY}-${debugConfig.grass.positionZ}-${terrainScene?.uuid}`}
             count={debugConfig.grass.count}
@@ -398,13 +406,15 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
         />
 
         {/* MapPin Sprite - カメラに対して常に正面を向く */}
-        <MapPinSprite
-          ref={mapPinRef}
-          position={[0, 20, 0]}
-          scale={1}
-          onPinClick={onMapPinClick}
-          portalRef={mapPinPortalRef}
-        />
+        {!showOnlyHotel && (
+          <MapPinSprite
+            ref={mapPinRef}
+            position={[0, 20, 0]}
+            scale={1}
+            onPinClick={onMapPinClick}
+            portalRef={mapPinPortalRef}
+          />
+        )}
 
         {/* Blue Orbs - 固定位置で配置、表示/非表示のみで制御 */}
         {/* Guest Rooms用オーブ（3つ） */}
@@ -437,7 +447,7 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
         />
 
         {/* ポストプロセスエフェクト */}
-        {(showGroundFog || debugConfig.bloom.enabled) && (
+        {!showOnlyHotel && (showGroundFog || debugConfig.bloom.enabled) && (
           <EffectComposer>
             <>
               {showGroundFog && (

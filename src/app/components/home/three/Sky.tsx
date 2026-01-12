@@ -94,7 +94,7 @@ export const Sky = ({
     <group ref={groupRef}>
       <primitive object={sky} />
       <DissolveParticles
-        sourceRef={groupRef}
+        sourceRef={groupRef as React.RefObject<THREE.Group>}
         progress={dissolveProgress}
         maxPoints={dissolveMaxPoints}
         size={dissolvePointSize}

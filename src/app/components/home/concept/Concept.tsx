@@ -71,7 +71,7 @@ export const Concept = ({ debugConfig, setDebugConfig }: Props) => {
         {/* フェーズ2：詳細コンテンツ表示 */}
         <div
           id="divB"
-          className={classNames(styles.detailPhase)}
+          className={classNames("divB", styles.detailPhase)}
           style={{
             position: "relative",
             display: "flex",
@@ -81,7 +81,7 @@ export const Concept = ({ debugConfig, setDebugConfig }: Props) => {
             paddingBottom: "200svh",
           }}
         >
-          <div className="b-left" style={{ flex: "0 0 40vw" }} />
+          <div className={classNames("b-left", styles.bLeft)} />
           <div
             className={classNames(`${styles["b-content"]}`, "b-content")}
             style={{

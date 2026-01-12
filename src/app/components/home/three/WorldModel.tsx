@@ -98,7 +98,7 @@ export const WorldModel = forwardRef<WorldModelRef, WorldModelProps>(
       <group ref={groupRef}>
         <primitive object={gltf.scene} />
         <DissolveParticles
-          sourceRef={groupRef}
+          sourceRef={groupRef as React.RefObject<THREE.Group>}
           progress={dissolveProgress}
           maxPoints={dissolveMaxPoints}
           size={dissolvePointSize}

@@ -242,7 +242,7 @@ export const Ocean = ({
   return (
     <group ref={groupRef}>
       <DissolveParticles
-        sourceRef={groupRef}
+        sourceRef={groupRef as React.RefObject<THREE.Group>}
         progress={dissolveProgress}
         maxPoints={dissolveMaxPoints}
         size={dissolvePointSize}

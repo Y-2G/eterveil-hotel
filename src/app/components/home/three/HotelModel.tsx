@@ -106,7 +106,7 @@ export const HotelModel = ({
         config={debugConfig.neonSign}
       />
       <DissolveParticles
-        sourceRef={groupRef}
+        sourceRef={groupRef as React.RefObject<THREE.Group>}
         progress={dissolveProgress}
         maxPoints={dissolveMaxPoints}
         size={dissolvePointSize}

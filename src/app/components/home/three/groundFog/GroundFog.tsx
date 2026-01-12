@@ -109,7 +109,8 @@ export const GroundFog = ({ config }: GroundFogProps) => {
         material.depthTest = false;
 
         // 視野内を覆うようにスケール調整
-        const distanceScale = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * distance;
+        const fov = (camera as THREE.PerspectiveCamera).fov ?? 50;
+        const distanceScale = Math.tan(THREE.MathUtils.degToRad(fov) / 2) * distance;
         const height = distanceScale * 2;
         const width = height * (size.width / size.height);
         const oversize = 2.5;

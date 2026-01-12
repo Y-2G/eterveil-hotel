@@ -153,23 +153,74 @@ export const Canvas = ({
       });
 
       // .b-content の開始時に縮小
-      gsap.fromTo(
-        "#canvasA",
-        { width: document.body.clientWidth },
-        {
-          width: document.body.clientWidth * 0.4,
+      const isMobile = windowWidth < 768;
+
+      if (isMobile) {
+        // SP用: 親コンテナのサイズのみをアニメーション（左下基点で縮小）
+        // 位置はbottom: 0, left: 0で固定、サイズだけ変更
+        gsap.fromTo(
+          "#canvas-container",
+          {
+            width: "100vw",
+            height: "100vh",
+          },
+          {
+            width: "35vw",
+            height: "35vh",
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              id: "canvas-shrink-mobile",
+              trigger: "#divB .b-content",
+              start: "top bottom",
+              end: "bottom top",
+              toggleActions: "play reverse play reverse",
+              markers: false,
+            },
+          }
+        );
+
+        // カメラzを遠ざける（ホテル全体が映るように）
+        const mobileCameraProxy = { posZ: 40 };
+        gsap.to(mobileCameraProxy, {
+          posZ: 100,
           duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {
-            id: "canvas-shrink",
+            id: "camera-zoom-mobile",
             trigger: "#divB .b-content",
             start: "top bottom",
             end: "bottom top",
             toggleActions: "play reverse play reverse",
             markers: false,
           },
-        }
-      );
+          onUpdate: () => {
+            setCameraState((prev) => ({
+              ...prev,
+              posZ: mobileCameraProxy.posZ,
+            }));
+          },
+        });
+      } else {
+        // デスクトップ用: 幅のみ縮小（既存アニメーション）
+        gsap.fromTo(
+          "#canvasA",
+          { width: document.body.clientWidth },
+          {
+            width: document.body.clientWidth * 0.4,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              id: "canvas-shrink",
+              trigger: "#divB .b-content",
+              start: "top bottom",
+              end: "bottom top",
+              toggleActions: "play reverse play reverse",
+              markers: false,
+            },
+          }
+        );
+      }
 
       // b-content 終了時のパン〜zoomOut を一つのタイムラインで制御
       const bContentCameraProxy = {
@@ -478,16 +529,21 @@ export const Canvas = ({
 
   return (
     <div
+      id="canvas-container"
       style={{
         position: "fixed",
         opacity: 1,
-        inset: 0,
+        bottom: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
         zIndex: orbitControlsEnabled || isMapPinLayerActive ? 4 : zIndex,
         pointerEvents: "auto",
       }}
     >
       <ThreeCanvas
         id="canvasA"
+        style={{ width: "100%", height: "100%" }}
         resize={{ scroll: false, debounce: { scroll: 0, resize: 0 } }}
         gl={{ alpha: false }}
         onCreated={({ gl }) => {

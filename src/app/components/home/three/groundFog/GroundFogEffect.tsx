@@ -130,7 +130,7 @@ class GroundFogEffectImpl extends Effect {
 
   constructor(config: GroundFogEffectConfig) {
     super("GroundFogEffect", fragmentShader, {
-      uniforms: new Map([
+      uniforms: new Map<string, Uniform<number | Color>>([
         ["uTime", new Uniform(0)],
         ["uFogColor", new Uniform(new Color(config.color))],
         ["uFogDensity", new Uniform(config.density)],

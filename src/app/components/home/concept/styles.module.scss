@@ -2,10 +2,29 @@
   position: relative;
 }
 
+.bLeft {
+  flex: 0 0 40vw;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
 .b-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: 5vh 4vw;
+  }
+}
+
+.detailPhase {
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 }
 
 .cathcCopyEn {

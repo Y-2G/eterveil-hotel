@@ -48,18 +48,6 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <div className={styles.scrollIndicator}>
-          <span className={styles.scrollText}>Scroll to explore</span>
-          <div
-            className={styles.scrollAnimation}
-            style={{ animation: "bounce 2s infinite" }}
-          >
-            <div className={styles.scrollLine}></div>
-            <ChevronDown className="size-4 text-white/40" />
-          </div>
-        </div>
       </section>
     </div>
   );

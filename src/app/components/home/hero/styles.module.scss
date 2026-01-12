@@ -136,19 +136,6 @@
   }
 }
 
-// Scroll Indicator
-.scrollIndicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .scrollText {
   color: rgba(255, 255, 255, 0.4);
   font-size: 0.75rem;
@@ -277,9 +264,5 @@
   .supportingCopy {
     font-size: 0.875rem;
     margin-bottom: 2rem;
-  }
-
-  .scrollIndicator {
-    bottom: 1rem;
   }
 }

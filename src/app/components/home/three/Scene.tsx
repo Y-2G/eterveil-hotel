@@ -323,8 +323,8 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
           />
         )}
 
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
+        <ambientLight intensity={showOnlyHotel ? 2.5 : 0.5} />
+        <directionalLight position={[10, 10, 5]} intensity={showOnlyHotel ? 3 : 1} />
 
         {/* 物理ベースの空（Sky シェーダー） */}
         {!showOnlyHotel && (
@@ -447,10 +447,10 @@ export const Scene = forwardRef<SceneRef, SceneProps>(
         />
 
         {/* ポストプロセスエフェクト */}
-        {!showOnlyHotel && (showGroundFog || debugConfig.bloom.enabled) && (
+        {((!showOnlyHotel && showGroundFog) || debugConfig.bloom.enabled) && (
           <EffectComposer>
             <>
-              {showGroundFog && (
+              {!showOnlyHotel && showGroundFog && (
                 <GroundFogEffect
                   color={debugConfig.groundFog.color}
                   density={debugConfig.groundFog.density}

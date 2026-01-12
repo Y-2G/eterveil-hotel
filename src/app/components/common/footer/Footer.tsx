@@ -16,7 +16,7 @@ export const Footer = () => {
         </div>
 
         <div className={`${styles.footerSection}`}>
-          <h4 className={`${styles.footerSubtitle}`}>サイトマップ</h4>
+          <h4 className={`${styles.footerSubtitle}`}>Sitemap</h4>
           <ul className={`${styles.footerLinks}`}>
             {MENU_ITEMS.map((item) => (
               <li key={item.href}>
@@ -27,15 +27,15 @@ export const Footer = () => {
         </div>
 
         <div className={`${styles.footerSection}`}>
-          <h4 className={`${styles.footerSubtitle}`}>お問い合わせ</h4>
+          <h4 className={`${styles.footerSubtitle}`}>Contact</h4>
           <div className={`${styles.contactInfo}`}>
             <p>
-              <strong>電話:</strong>
+              <strong>Phone:</strong>
               <a href="tel:09012345678">090-1234-5678</a>
             </p>
             <p>
-              <strong>住所:</strong>
-              〒104-0031 東京都中央区京橋3-1-1
+              <strong>Address:</strong>
+              〒104-0031 1-8-3 Shiosaki, Higashi-kai Ward, Tokyo
             </p>
           </div>
         </div>

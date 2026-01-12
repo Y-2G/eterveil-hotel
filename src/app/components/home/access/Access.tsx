@@ -70,6 +70,25 @@ export const Access = forwardRef<AccessRef, Props>(
       }
     }, [isAccessInfoOpen]);
 
+    useEffect(() => {
+      if (!isAccessInfoOpen) {
+        return;
+      }
+
+      const handlePointerDown = (event: PointerEvent) => {
+        const popup = accessInfoPopupRef.current;
+        if (!popup || popup.contains(event.target as Node)) {
+          return;
+        }
+        handleMoreClick();
+      };
+
+      document.addEventListener("pointerdown", handlePointerDown);
+      return () => {
+        document.removeEventListener("pointerdown", handlePointerDown);
+      };
+    }, [isAccessInfoOpen, handleMoreClick]);
+
     // 外部からhandleMoreClickを呼び出せるようにする
     useImperativeHandle(ref, () => ({
       handleMoreClick,

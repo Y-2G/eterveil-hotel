@@ -10,12 +10,19 @@
   width: 100vw;
   height: 100vh;
   z-index: var(--z-canvas);
-  pointer-events: none;
 }
 
 .canvas {
   width: 100%;
   height: 100%;
+}
+
+.canvasTouchAuto {
+  touch-action: auto !important;
+}
+
+.canvasTouchNone {
+  touch-action: none !important;
 }
 
 .mapOverlay {

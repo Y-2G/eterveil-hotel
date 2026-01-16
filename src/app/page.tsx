@@ -58,7 +58,7 @@ export default function Home() {
     <>
       <Canvas
         debugConfig={config}
-        zIndex={1}
+        zIndex={10}
         orbitControlsEnabled={orbitControlsEnabled}
         onMapPinClick={handleMapPinClick}
       />

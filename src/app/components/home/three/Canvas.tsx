@@ -526,6 +526,7 @@ export const Canvas = ({
       className={styles.canvasContainer}
       style={{
         zIndex: orbitControlsEnabled || isMapPinLayerActive ? 4 : zIndex,
+        pointerEvents: orbitControlsEnabled || isMapPinLayerActive ? 'auto' : 'none',
       }}
     >
       <ThreeCanvas

@@ -32,6 +32,9 @@ export const DebugGUI = ({
   hotelConfig,
   setHotelConfig,
 }: DebugGUIProps) => {
+  // 環境変数でDebug GUIの表示を制御
+  const isDebugEnabled = process.env.NEXT_PUBLIC_DEBUG_GUI === "true";
+
   const guiRef = useRef<GUI | null>(null);
   const sceneConfigRef = useRef(
     sceneConfig ? structuredClone(sceneConfig) : null
@@ -107,6 +110,9 @@ export const DebugGUI = ({
 
   // lil-gui の初期化（マウント時のみ実行）
   useEffect(() => {
+    // 環境変数でDebug GUIが無効の場合は何もしない
+    if (!isDebugEnabled) return;
+
     sharedInstanceCount += 1;
 
     // 1つの GUI インスタンスを共有
@@ -1329,7 +1335,7 @@ export const DebugGUI = ({
         sharedMapFolder = null;
       }
     };
-  }, [setSceneConfig, setMapConfig, setHotelConfig]);
+  }, [isDebugEnabled, setSceneConfig, setMapConfig, setHotelConfig]);
 
   return null;
 };

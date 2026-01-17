@@ -556,7 +556,10 @@ export const Canvas = ({
         style={{ display: showOnlyHotel ? "none" : undefined }}
       />
       {/* Desaturation Overlay */}
-      <div className={styles.desaturationOverlay} />
+      <div
+        className={styles.desaturationOverlay}
+        style={{ backgroundColor: showOnlyHotel ? "transparent" : "rgba(15, 23, 42, 0.1)" }}
+      />
     </div>
   );
 };

@@ -532,7 +532,7 @@ export const Canvas = ({
       <ThreeCanvas
         id="canvasA"
         className={`${styles.canvas} ${orbitControlsEnabled ? styles.canvasTouchNone : styles.canvasTouchAuto}`}
-        resize={{ scroll: false, debounce: { scroll: 0, resize: 0 } }}
+        resize={{ scroll: false, debounce: { scroll: 0, resize: 0 }, offsetSize: true }}
         gl={{ alpha: true }}
         onCreated={({ gl }) => {
           glRef.current = gl;
